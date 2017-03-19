@@ -31,7 +31,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EarthquakeActivity extends AppCompatActivity {
+public class EarthquakeActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks< List<Earthquake>> {
 
 
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
@@ -74,6 +74,24 @@ public class EarthquakeActivity extends AppCompatActivity {
         task.execute(USGS_REQUEST_URL);
     }
 
+//    Implements 3 methods for Loader interface
+//    onCreateLoader
+//    onLoadFinished
+//    onLoaderReset
+    @Override
+    public Loader<List<Earthquake>> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<Earthquake>> loader) {
+
+    }
 
 
     private class EarthquakeAsyncTask extends AsyncTask<String, Void, List<Earthquake>> {
